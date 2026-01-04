@@ -31,7 +31,11 @@ describe("should be able to search many gyms", () => {
       search: "smart-fit-1",
       page: 1,
     });
-    expect(gym).toEqual([expect.objectContaining({ title: "smart-fit-1" })]);
+
+    console.log(gym);
+    expect(gym).toEqual({
+      gyms: [expect.objectContaining({ title: "smart-fit-1" })],
+    });
   });
 
   it("should be able to fetch paginated gym search", async () => {
@@ -45,11 +49,10 @@ describe("should be able to search many gyms", () => {
       });
     }
 
-    const gyms = await sut.execute({
+    const { gyms } = await sut.execute({
       search: "JavaScript",
       page: 2,
     });
-
     expect(gyms).toHaveLength(2);
     expect(gyms).toEqual([
       expect.objectContaining({ title: "JavaScript Gym 21" }),
