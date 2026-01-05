@@ -36,7 +36,6 @@ export class InMemoryCacheCheckInRepository implements CheckInsRepository {
   }
 
   async create(data: Prisma.CheckInUncheckedCreateInput) {
-    console.log("criando check-in in memory database ");
     const checkIn = {
       id: randomUUID(),
       user_id: data.user_id,
@@ -56,8 +55,8 @@ export class InMemoryCacheCheckInRepository implements CheckInsRepository {
   }
   async save(checkIn: CheckIn) {
     // verificar mais tarde!! o meu this.items ja vem co o checkin validade, a pricipio esse metodo não serve para salvar o checkin recebido e validado
-    // const checkInIndex = this.items.findIndex((item) => item.id === checkIn.id);
-    // if (checkInIndex >= 0) this.items[checkInIndex] = checkIn;
+    const checkInIndex = this.items.findIndex((item) => item.id === checkIn.id);
+    if (checkInIndex >= 0) this.items[checkInIndex] = checkIn;
 
     return checkIn;
   }

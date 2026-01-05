@@ -3,6 +3,8 @@ import { InMemoryCacheCheckInRepository } from "@/repository/in-memory-cache/in-
 import { CheckinService } from "./check-in.js";
 import type { GymsRepository } from "@/repository/gyms.js";
 import { InMemoryCacheGymsRepository } from "@/repository/in-memory-cache/in-memory-cache-gyms.js";
+import { randomUUID } from "node:crypto";
+import { Prisma } from "@prisma/client";
 
 let checkInsRepository: InMemoryCacheCheckInRepository;
 let gymsRepository: GymsRepository;
@@ -18,8 +20,8 @@ describe("Check-in Use Case", () => {
     const data = {
       id: "gym-01",
       description: "smart fit",
-      latitude: -23.7442673,
-      longitude: -46.7072269,
+      latitude: Prisma.Decimal(-23.7442673),
+      longitude: Prisma.Decimal(-46.7072269),
       phone: "11986431855",
       title: "Smart-Fit AV Teotonio Vilela",
     };
@@ -87,8 +89,8 @@ describe("Check-in Use Case", () => {
     const data = {
       id: "gym-02",
       description: "smart fit",
-      latitude: -23.7441996,
-      longitude: -46.7071687,
+      latitude: Prisma.Decimal(-23.7441996),
+      longitude: Prisma.Decimal(-46.7071687),
       phone: "11986431855",
       title: "Smart-Fit Americanopolis",
     };

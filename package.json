@@ -7,7 +7,7 @@
     "start:dev": "tsx watch src/server.ts",
     "start": "node dist/server.cjs",
     "build": "npx tsup src --out-dir dist",
-    "test": "vitest run --project unit",
+    "test": "vitest run --dir src/services",
     "test:e2e": "prisma generate && vitest run --project e2e",
     "test:ui": "vitest --ui",
     "test:unit:watch": " prisma generate && vitest --project unit ",
