@@ -18,5 +18,6 @@ jobs:
 
             - run: npm run test
               env:
+                  PORT: 3333
                   JWT_SECRET: testing
                   DATABASE_URL: "postgresql://docker:docker@localhost:5432/apisolid?schema=public"
