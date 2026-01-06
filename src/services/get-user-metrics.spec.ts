@@ -19,7 +19,7 @@ describe("Get User Check-in metrics Sarvices", () => {
     }
   });
 
-  it.only("should be able to fetch check-in history", async () => {
+  it("should be able to fetch check-in history", async () => {
     const { metrics } = await sut.execute({
       userId: "user-01",
     });
