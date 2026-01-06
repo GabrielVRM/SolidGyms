@@ -1,6 +1,5 @@
 import type { Prisma, User } from "@prisma/client";
 import type { UsersRepository } from "../users-repository.js";
-import { uuid } from "zod/mini";
 import { randomUUID } from "node:crypto";
 
 export class InMemoryCacheUsersRepository implements UsersRepository {
